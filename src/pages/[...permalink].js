@@ -17,8 +17,9 @@ export default function Home(data) {
       <Head>
         <title>{title}</title>
         {/* Necessary Src and Style tags */}
+
       </Head>
-      {blocks.map((data) => <Render {...data} />)
+      {blocks.map((data, index) => <Render key={data?.id || index} {...data} />)
       }
     </>
   );

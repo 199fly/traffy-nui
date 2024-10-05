@@ -2,14 +2,15 @@ import React from 'react'
 
 // Import components here as they are added
 import Nav from './components/Nav'
+import Footer from './components/Footer'
 
 function Render({ id, status, type, name, data }) {
     switch (name) {
         case 'nav':
             return <Nav data={data} />;
-        case 'Component Name':
+        case 'footer':
             // return component
-            return null;
+            return <Footer data={data} />;
         default:
 
             return <div>{`Component Not Configured: ${name}`}</div>;

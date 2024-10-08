@@ -1,0 +1,70 @@
+---
+import Render from "./Render.astro";
+import MockApi from "../api/mock-api.json";
+import Header from "./Header.astro";
+import Scripts from "./Scripts.astro";
+
+export async function getStaticPaths() {
+  const ENVIRONMENT = import.meta.env.ENVIRONMENT || "dev";
+  const GET_PRODUCTION = async () => {};
+
+  const GET_MOCK = async () => {
+    const website = MockApi;
+    const PAGES = website?.pages || [];
+    return PAGES.map((page) => ({
+      params: {
+        permalink: page.permalink,
+      },
+      props: { website, page },
+    }));
+  };
+
+  return ENVIRONMENT === "dev" ? await GET_MOCK() : await GET_PRODUCTION();
+}
+
+const { page, website } = Astro.props;
+const { id, title, permalink, status, blocks } = page;
+---
+
+<!doctype html>
+<html lang="en">
+  <Header {...website} />
+  <body>
+    <main id="body-inner">
+      <!-- Begin page transition (do not remove!!!) 
+			=========================== -->
+      <div id="page-transition">
+        <div class="ptr-overlay"></div>
+        <div class="ptr-preloader">
+          <div class="ptr-prel-content">
+            <!-- Hint: You may need to change the img height and opacity to match your logo type. You can do this from the "theme.css" file (find: ".ptr-prel-image"). -->
+            <img
+              src="assets/img/logo-light.png"
+              class="ptr-prel-image tt-logo-light"
+              alt="Logo"
+            />
+          </div>
+          <!-- /.ptr-prel-content -->
+        </div>
+        <!-- /.ptr-preloader -->
+      </div>
+      <!-- End page transition -->
+
+      <!-- Begin magic cursor 
+			======================== -->
+      <div id="magic-cursor">
+        <div id="ball"></div>
+      </div>
+      <!-- End magic cursor -->
+      <!-- *****************************************
+			*********** Begin scroll container *********** 
+			****************************************** -->
+      <div id="scroll-container">
+        <div id="content-wrap">
+          <!-- Fill Page By Rendering Each component block -->
+          {blocks.map((block) => <Render {...block} />)}
+        </div>
+      </div>
+    </main>
+  </body><Scripts />
+</html>

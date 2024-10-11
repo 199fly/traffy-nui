@@ -1,8 +1,8 @@
 ---
-import Render from "./Render.astro";
-import MockApi from "../api/mock-api.json";
-import Header from "./Header.astro";
-import Scripts from "./Scripts.astro";
+import Render from "../Render.astro";
+import MockApi from "../../api/mock-api.json";
+import Header from "../Header.astro";
+import Scripts from "../Scripts.astro";
 
 export async function getStaticPaths() {
   const ENVIRONMENT = import.meta.env.ENVIRONMENT || "dev";

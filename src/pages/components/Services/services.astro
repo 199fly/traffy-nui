@@ -1,0 +1,48 @@
+---
+import jsonData from '../../../api/mock-api.json';
+
+const servicesData = jsonData.pages.find(page => page.permalink === 'home').blocks.find(block => block.name === 'services');
+const items = servicesData.data.items;
+
+---
+
+
+
+<div class="tt-section padding-top-xlg-100 padding-bottom-xlg-150">
+    <div class="tt-section-inner tt-wrap max-width-1700">
+      <div class="tt-row margin-left-lg-3-p margin-right-lg-3-p">
+        <div class="tt-col-xl-4">
+          <div class="tt-heading tt-heading-xlg anim-fadeinup">
+            <h3 class="tt-heading-subtitle">{servicesData.data.header.value}</h3>
+            <h2 class="tt-heading-title">{servicesData.data.subheader.value}</h2>
+          </div>
+          <div class="max-width-600 margin-bottom-60 anim-fadeinup">
+            <h5>{servicesData.data.description.value}</h5>
+          </div>
+        </div>
+  
+        <div class="tt-col-xl-7">
+          <div class="tt-accordion tt-ac-borders">
+            {items.map((item) => (
+              <div class="tt-accordion-item anim-fadeinup">
+                <div class="tt-accordion-heading">
+                  <div class="tt-ac-head cursor-alter">
+                    <h3 class="tt-ac-head-title">{item.title.value}</h3>
+                  </div>
+                  <div class="tt-accordion-caret-wrap">
+                    <div class="tt-accordion-caret-inner magnetic-item">
+                      <div class="tt-accordion-caret"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tt-accordion-content max-width-800">
+                  <p>{item.description.value}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,64 @@
+---
+const { header, subheader, form } = Astro.props;
+
+const [part1] = subheader.value.split("Together");
+---
+
+<div class="tt-section padding-top-xlg-150">
+  <div class="tt-section-inner tt-wrap max-width-700">
+    <div class="tt-heading tt-heading-xxlg margin-bottom-8-p anim-fadeinup">
+      <h3 class="tt-heading-subtitle">{header.value}</h3>
+      <h2 class="tt-heading-title">
+        {part1}Together!<br />
+      </h2>
+    </div>
+
+    <form id="tt-contact-form" class="tt-form-filled anim-fadeinup">
+      <input type="hidden" name="project_name" value="yourwebsiteaddress.com" />
+      <input type="hidden" name="admin_email" value="your@email.com" />
+      <input
+        type="hidden"
+        name="form_subject"
+        value="Message from yourwebsiteaddress.com"
+      />
+
+      <div class="tt-row">
+        {
+          form.schema.map((field: any) => (
+            <div class="tt-col-md-6">
+              <div class="tt-form-group">
+                <label>{field.label}</label>
+                {field.type === "textarea" ? (
+                  <textarea
+                    class="tt-form-control"
+                    rows="5"
+                    name={field.name}
+                    required={field.required}
+                    placeholder=""
+                  />
+                ) : (
+                  <input
+                    class="tt-form-control"
+                    type={field.type}
+                    name={field.name}
+                    required={field.required}
+                    placeholder=""
+                  />
+                )}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <small class="tt-form-text">
+        <em>Fields marked with an asterisk (*) are required!</em>
+      </small>
+
+      <button type="submit" class="tt-btn tt-btn-primary margin-top-30">
+        <div data-hover="Send Message">Send Message</div>
+        <span class="tt-btn-icon"><i class="fas fa-paper-plane"></i></span>
+      </button>
+    </form>
+  </div>
+</div>

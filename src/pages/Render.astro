@@ -3,11 +3,13 @@ import Footer from "./components/Footer/index.astro";
 import Nav from "./components/Nav/index.astro";
 import Services from "./components/Services/index.astro";
 import Form from "./components/Form/index.astro";
+import Marquee from "./components/Marquee/index.astro";
 
 const { id, status, type, name, data } = Astro.props;
 ---
 
 {name === "nav" && <Nav {...data} />}
 {name === "footer" && <Footer {...data} />}
-{name === "services" && <Services {...data}/>}
-{name === "form" && <Form {...data}/>}
+{name === "services" && <Services {...data} />}
+{name === "form" && <Form {...data} />}
+{name === "marquee" && <Marquee {...data} />}

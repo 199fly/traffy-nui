@@ -1,0 +1,24 @@
+---
+const { top, bottom } = Astro.props;
+---
+
+<div
+  class="tt-section padding-top-xlg-120 padding-bottom-xlg-120 bg-white-accent-3"
+>
+  <div class="tt-section-inner">
+    <div class="tt-scrolling-text" data-scroll-speed="10">
+      <div class="tt-scrolling-text-inner" data-text={top.value}>
+        {top.value}
+      </div>
+    </div>
+
+    <div
+      class="tt-scrolling-text scr-text-stroke scr-text-reverse"
+      data-scroll-speed="10"
+    >
+      <div class="tt-scrolling-text-inner" data-text={bottom.value}>
+        {bottom.value}
+      </div>
+    </div>
+  </div>
+</div>

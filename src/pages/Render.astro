@@ -4,6 +4,8 @@ import Nav from "./components/Nav/index.astro";
 import Services from "./components/Services/index.astro";
 import Form from "./components/Form/index.astro";
 import Marquee from "./components/Marquee/index.astro";
+import Portfolio1 from "./components/Portfolio1/index.astro";
+import Writeup from "./components/Writeup/index.astro";
 
 const { id, status, type, name, data } = Astro.props;
 ---
@@ -13,3 +15,6 @@ const { id, status, type, name, data } = Astro.props;
 {name === "services" && <Services {...data} />}
 {name === "form" && <Form {...data} />}
 {name === "marquee" && <Marquee {...data} />}
+{name === "portfolio1" && <Portfolio1 {...data} />}
+
+{name === "writeup" && <Writeup {...data} />}

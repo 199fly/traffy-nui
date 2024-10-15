@@ -1,7 +1,5 @@
 ---
 const { header, subheader, form } = Astro.props;
-
-const [part1] = subheader.value.split("Together");
 ---
 
 <div class="tt-section padding-top-xlg-150">
@@ -10,7 +8,7 @@ const [part1] = subheader.value.split("Together");
     <div class="tt-heading tt-heading-xxlg margin-bottom-8-p anim-fadeinup">
       <h3 class="tt-heading-subtitle">{header.value}</h3>
       <h2 class="tt-heading-title">
-        {part1}<br />Together!
+        {subheader?.value}
       </h2>
     </div>
 

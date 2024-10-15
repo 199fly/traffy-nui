@@ -23,28 +23,20 @@ const { items, link } = Astro.props;
                       <div class="pgi-image-holder">
                         <div class="pgi-image-inner anim-zoomin">
                           <figure class="pgi-image ttgr-height">
-                            {item.image.value ? (
-                              <Image
-                                src={item.image?.value || "default image"}
-                                alt={item.image.alt || "Default Image"}
-                                width={100}
-                                height={100}
-                              />
-                            ) : (
+                            
                               <video
                                 class="pgi-video"
                                 loop
                                 muted
                                 preload="metadata"
-                                poster={item.image.alt}
+                                poster={item.image.value || "/assets/img/low-qlt-thumb.jpg"}
                               >
-                                <source src={item.image.alt} type="video/mp4" />
+                                {item?.video && <source src={item?.video?.value} type="video/mp4" />
                                 <source
-                                  src={item.image.alt}
+                                  src={item?.video?.value}
                                   type="video/webm"
-                                />
+                                />}
                               </video>
-                            )}
                           </figure>
                         </div>
                       </div>

@@ -5,8 +5,9 @@ import Services from "./components/Services/index.astro";
 import Form from "./components/Form/index.astro";
 import Marquee from "./components/Marquee/index.astro";
 import Portfolio1 from "./components/Portfolio1/index.astro";
-
 import Writeup from "./components/Writeup/index.astro";
+import Hero from "./components/Hero/index.astro";
+import Hero2 from "./components/Hero2/index.astro";
 
 const { id, status, type, name, data } = Astro.props;
 ---
@@ -17,5 +18,6 @@ const { id, status, type, name, data } = Astro.props;
 {name === "form" && <Form {...data} />}
 {name === "marquee" && <Marquee {...data} />}
 {name === "portfolio1" && <Portfolio1 {...data} />}
-
 {name === "writeup" && <Writeup {...data} />}
+{name === "hero" && <Hero {...data} />}
+{name === "hero2" && <Hero2 {...data} />}

@@ -1,3 +1,7 @@
+---
+const { header, subheader } = Astro.props;
+---
+
 <div
   id="page-header"
   class="ph-full ph-cap-lg ph-ghost-scroll ph-image-cropped ph-content-parallax"
@@ -11,13 +15,22 @@
 
     <div class="ph-caption max-width-1000">
       <div class="ph-caption-subtitle">
-        <div class="ph-appear">About Me</div>
+        <div class="ph-appear">{header.value}</div>
       </div>
       <h1 class="ph-caption-title">
-        <div class="ph-appear">Stephan<br /> Gordon</div>
+        <div class="ph-appear">
+          {
+            subheader.value.split(" ").map((word, index) => (
+              <>
+                {word}
+                {index === 0 && <br />}
+              </>
+            ))
+          }
+        </div>
       </h1>
       <div class="ph-caption-title-ghost">
-        <div class="ph-appear">Stephan Gordon</div>
+        <div class="ph-appear">{subheader.value}</div>
       </div>
     </div>
   </div>

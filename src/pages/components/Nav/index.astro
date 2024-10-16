@@ -5,11 +5,7 @@ const {logo} = Astro.props
 
 <header id="tt-header" class="tt-header-fixed">
   <div class="tt-header-inner">
-    <!-- add/remove class "tt-wrap" to enable/disable element boxed layout (class "tt-boxed" is required in <body> tag!). Note: additionally you can use prepared helper class "max-width-*" to add custom width to "tt-wrap". Example: "max-width-1500" (class "tt-wrap" is still required!). More info about helper classes can be found in the file "helper.css". -->
-
     <div class="tt-header-col">
-      <!-- Begin logo 
-            ================ -->
       <div class="tt-logo">
         <a href="index.html">
           {logo?.value ? <img
@@ -30,11 +26,6 @@ const {logo} = Astro.props
           }
         </a>
       </div>
-      <!-- End logo -->
     </div>
-    <!-- /.tt-header-col -->
-
-    <!-- /.header-col -->
   </div>
-  <!-- /.header-inner -->
 </header>

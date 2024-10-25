@@ -61,6 +61,7 @@ const { items, link } = Astro.props;
       </div>
     </div>
 
+    {link && 
     <div class="text-center anim-fadeinup">
       <a
         href={link.url}
@@ -87,5 +88,6 @@ const { items, link } = Astro.props;
         </div>
       </a>
     </div>
+  }
   </div>
 </div>

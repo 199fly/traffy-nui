@@ -6,7 +6,7 @@ const { header, subheader, form } = Astro.props;
   <div class="tt-section-inner tt-wrap max-width-700">
     <!-- Heading section -->
     <div class="tt-heading tt-heading-xxlg margin-bottom-8-p anim-fadeinup">
-      <h3 class="tt-heading-subtitle">{header.value}</h3>
+      <h3 class="tt-heading-subtitle">{header?.value}</h3>
       <h2 class="tt-heading-title">
         {subheader?.value}
       </h2>
@@ -17,21 +17,21 @@ const { header, subheader, form } = Astro.props;
       {
         form.schema.map((field: any) => (
           <div class="tt-form-group">
-            <label>{field.label}</label>
-            {field.type === "textarea" ? (
+            <label>{field?.label}</label>
+            {field?.type === "textarea" ? (
               <textarea
                 class="tt-form-control"
                 rows="5"
-                name={field.name}
-                required={field.required}
+                name={field?.name}
+                required={field?.required}
                 placeholder=""
               />
             ) : (
               <input
                 class="tt-form-control"
-                type={field.type}
-                name={field.name}
-                required={field.required}
+                type={field?.type}
+                name={field?.name}
+                required={field?.required}
                 placeholder=""
               />
             )}
